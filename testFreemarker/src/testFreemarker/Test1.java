@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -28,6 +31,14 @@ public class Test1 {
 		Map root=new HashMap<>();
 		root.put("user", "老高");
 		root.put("random",new Random().nextInt(100));
+		
+		List list = new ArrayList();
+		list.add(new Address("中国","北京"));
+		list.add(new Address("中国","上海"));
+		list.add(new Address("美国","纽约"));
+		root.put("lst", list);
+		root.put("htm2", "<b>粗体</b>");
+		root.put("date1", new Date());
 		//加载模板文件
 		Template t1= cfg.getTemplate("a.ftl");
 		//显示生成的数据
